@@ -1,7 +1,8 @@
 # MPClass
 A javascript inheritance function works just like opp
 ### Here is some example 
-  var Shape = MPClass({
+<pre>
+var Shape = MPClass({
 	    init : function(a,b){
 		      this.a = a;
 		      this.b = b;
@@ -24,3 +25,4 @@ A javascript inheritance function works just like opp
   //shape.add() === 6
   trangle.is(Trangle);  // true;
   trangle.is(Shape);    // true;
+</pre>
