@@ -10,6 +10,18 @@
 			// we can add some prototype function in here
 			is : function(parent){
 				return (this.parent === parent || this.me === parent) ? true : false;
+			},
+			hasattr : function(){
+				
+			},
+			getattr : function(){
+				
+			},
+			dir : function(){
+				
+			},
+			setattr: function(){
+				
 			}
 		};
 		MPClass.extend = function(prop) {
@@ -24,6 +36,11 @@
 				_super = this.prototype;
 			}
 			initializing = false;
+			var setStatic;
+			if('setStatic' in prop){
+				setStatic = prop['setStatic'];
+				delete prop['setStatic'];
+			}
 			for (var name in prop) {
 				proto[name] = typeof prop[name] == "function" &&
 				typeof _super[name] == "function" &&
@@ -45,6 +62,8 @@
 					this.init.apply(this, arguments);
 				}
 			}
+			if(_.isFunction(setStatic))
+				setStatic(Class);
 			Class.prototype = proto;
 			Class.constructor = Class;
 			Class.prototype.parent = this.constructor;
