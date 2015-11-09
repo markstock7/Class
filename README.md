@@ -26,3 +26,16 @@ var Shape = MPClass({
   trangle.is(Trangle);  // true;
   trangle.is(Shape);    // true;
 </pre>
+If you want to add some private methods or some private param,you can write like following
+<pre>
+	var Cls = MPClass(function(){
+		var private_param = 1;
+		var private_method = function(){
+		
+		}
+		return {
+			public_method = function(){}
+		}
+	}());
+	var cls = new Cls();
+</pre>
